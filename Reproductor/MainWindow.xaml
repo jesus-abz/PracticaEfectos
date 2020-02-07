@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="188.267" Width="555.199">
+        Title="MainWindow" Height="213.889" Width="555.199">
     <Grid Margin="0,0,3.2,0.4">
         <TextBlock x:Name="lblTiempoActual" HorizontalAlignment="Left" Margin="11,62,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="50"/>
         <TextBlock x:Name="lblTiempoTotal" HorizontalAlignment="Left" Margin="421,62,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="50"/>
@@ -19,8 +19,9 @@
                 Thumb.DragCompleted="sldTiempo_DragCompleted"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="Elige dispositivo de salida:" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="461" SelectionChanged="cbDispositivoSalida_SelectionChanged"/>
-        <Slider x:Name="sldVolumen" Margin="497,10,10.6,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="117" Orientation="Vertical" SmallChange="0.01" Maximum="1" Value="1" ValueChanged="sldVolumen_ValueChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="476,132,0,0" TextWrapping="Wrap" Text="Volumen" VerticalAlignment="Top" RenderTransformOrigin="0.288,0.689" Width="59" TextAlignment="Center"/>
+        <Slider x:Name="sldVolumen" Margin="497,10,10.6,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="143" Orientation="Vertical" SmallChange="0.01" Maximum="1" Value="1" ValueChanged="sldVolumen_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="477,158,0,0" TextWrapping="Wrap" Text="Volumen" VerticalAlignment="Top" RenderTransformOrigin="0.288,0.689" Width="59" TextAlignment="Center"/>
+        <TextBlock x:Name="lblMuestras" HorizontalAlignment="Left" Margin="10,158,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
