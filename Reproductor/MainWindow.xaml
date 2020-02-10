@@ -5,23 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reproductor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="213.889" Width="555.199">
+        Title="MainWindow" Height="280.967" Width="555.199">
     <Grid Margin="0,0,3.2,0.4">
-        <TextBlock x:Name="lblTiempoActual" HorizontalAlignment="Left" Margin="11,62,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="50"/>
-        <TextBlock x:Name="lblTiempoTotal" HorizontalAlignment="Left" Margin="421,62,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="50"/>
+        <TextBlock x:Name="lblTiempoActual" HorizontalAlignment="Left" Margin="11,129,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="50"/>
+        <TextBlock x:Name="lblTiempoTotal" HorizontalAlignment="Left" Margin="421,129,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="50"/>
         <TextBox x:Name="txtRutaArchivo" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="381" IsEnabled="False"/>
         <Button x:Name="btnExaminar" Content="Examinar" HorizontalAlignment="Left" Margin="396,10,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnExaminar_Click_1"/>
-        <Button x:Name="btnReproducir" Content="Reproducir" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="121" Click="btnReproducir_Click"/>
-        <Button x:Name="btnDetener" Content="Detener" HorizontalAlignment="Left" Margin="269,38,0,0" VerticalAlignment="Top" Width="122" Click="btnDetener_Click"/>
-        <Button x:Name="btnPausa" Content="Pausa" HorizontalAlignment="Left" Margin="139,38,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="-2.13,-4.125" Click="btnPausa_Click"/>
-        <Slider x:Name="sldTiempo" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="461"
+        <Button x:Name="btnReproducir" Content="Reproducir" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="121" Click="btnReproducir_Click"/>
+        <Button x:Name="btnDetener" Content="Detener" HorizontalAlignment="Left" Margin="269,104,0,0" VerticalAlignment="Top" Width="122" Click="btnDetener_Click"/>
+        <Button x:Name="btnPausa" Content="Pausa" HorizontalAlignment="Left" Margin="139,104,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="-2.13,-4.125" Click="btnPausa_Click"/>
+        <Slider x:Name="sldTiempo" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" Width="461"
                 Thumb.DragStarted="sldTiempo_DragStarted"
                 Thumb.DragCompleted="sldTiempo_DragCompleted"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="Elige dispositivo de salida:" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="461" SelectionChanged="cbDispositivoSalida_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,171,0,0" TextWrapping="Wrap" Text="Elige dispositivo de salida:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Width="461" SelectionChanged="cbDispositivoSalida_SelectionChanged"/>
         <Slider x:Name="sldVolumen" Margin="497,10,10.6,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="143" Orientation="Vertical" SmallChange="0.01" Maximum="1" Value="1" ValueChanged="sldVolumen_ValueChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="477,158,0,0" TextWrapping="Wrap" Text="Volumen" VerticalAlignment="Top" RenderTransformOrigin="0.288,0.689" Width="59" TextAlignment="Center"/>
-        <TextBlock x:Name="lblMuestras" HorizontalAlignment="Left" Margin="10,158,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblMuestras" HorizontalAlignment="Left" Margin="10,225,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,38,0,0" TextWrapping="Wrap" Text="Fade In:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,62,0,0" TextWrapping="Wrap" Text="Duracion:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDuracionFadeIn" HorizontalAlignment="Left" Height="23" Margin="65,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Text="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="160,38,0,0" TextWrapping="Wrap" Text="Fade Out:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="159,62,0,0" TextWrapping="Wrap" Text="Inicio:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtInicioFadeOut" HorizontalAlignment="Left" Height="23" Margin="195,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Text="10"/>
+        <TextBlock HorizontalAlignment="Left" Margin="264,65,0,0" TextWrapping="Wrap" Text="Duracion:" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDuracionFadeOut" Height="23" Margin="319,61,162.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="1"/>
 
     </Grid>
 </Window>
