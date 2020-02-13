@@ -38,7 +38,7 @@ namespace Reproductor
         //VolumeSampleProvider volume;
         EfectoVolumen efectoVolumen;
         EfectoFadeIn efectoFadeIn;
-        //EfectoFadeOut efectoFadeOut;
+        EfectoFadeOut efectoFadeOut;
 
         public MainWindow()
         {
@@ -119,11 +119,11 @@ namespace Reproductor
                     efectoVolumen = new EfectoVolumen(efectoFadeIn);
                     efectoVolumen.Volumen = (float)(sldVolumen.Value);
 
-                    float inicioFadeOut = float.Parse(txtInicioFadeOut.Text);
+                    int inicioFadeOut = int.Parse(txtInicioFadeOut.Text);
                     float duracionFadeOut = float.Parse(txtDuracionFadeOut.Text);
-                    //efectoFadeOut = new EfectoFadeOut(reader, duracionFadeOut);
+                    efectoFadeOut = new EfectoFadeOut(reader, inicioFadeOut, duracionFadeOut);
 
-                    //efectoVolumen = new EfectoVolumen(efectoFadeOut);
+                    efectoVolumen = new EfectoVolumen(efectoFadeOut);
 
                     output = new WaveOut();
                     output.DeviceNumber = cbDispositivoSalida.SelectedIndex;
