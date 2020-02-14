@@ -13,10 +13,10 @@ namespace Reproductor
         private ISampleProvider fuente;
         private int muestrasLeidas = 0;
         private float segundosTrancurridos = 0;
-        private int inicio;
+        private float inicio;
         private float duracion;
 
-        public EfectoFadeOut(ISampleProvider fuente, int inicio, float duracion)
+        public EfectoFadeOut(ISampleProvider fuente, float inicio, float duracion)
         {
             this.fuente = fuente;
             this.inicio = inicio;
@@ -36,19 +36,29 @@ namespace Reproductor
             int read = fuente.Read(buffer, offset, count);
 
             //aplicar el efecto
+            //proceso - modificacion de los valores de buffer
             muestrasLeidas += read;
             segundosTrancurridos = (float)muestrasLeidas / (float)fuente.WaveFormat.SampleRate / (float)fuente.WaveFormat.Channels;
 
-            if (segundosTrancurridos >= inicio && segundosTrancurridos <= duracion)
+            if (segundosTrancurridos >= inicio && segundosTrancurridos <= (duracion + inicio))
             {
                 //aplicar efecto
-                float factorEscala = segundosTrancurridos / duracion;
-                for (int i = inicio; i < read; i++)
+                //determinar factor escala
+                float factorEscala = 1-((segundosTrancurridos - inicio) / duracion);
+                //escalamos muestras
+                for (int i = 0; i < read; i++)
                 {
                     buffer[i + offset] *= factorEscala;
                 }
+            }else if(segundosTrancurridos >= (duracion + inicio))
+            {
+                for (int i = 0; i < read; i++)
+                {
+                    buffer[i + offset] *= 0.0f;
+                }
             }
 
+            //variable buffer modificada es la salida
             return read;
         }
     }
