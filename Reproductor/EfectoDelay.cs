@@ -38,7 +38,36 @@ namespace Reproductor
         {
             int read = fuente.Read(buffer, offset, count);
 
+            //calculo de tiempo
+            float milisegundosTranscurridos = ((float)(cantidaMuestrasTranscurridas) /
+                (float)(fuente.WaveFormat.SampleRate * fuente.WaveFormat.Channels)) * 1000.0f;
 
+            int numeroMuestrasOffset = (int)((offsetMiliSegundos / 1000.0f) * (float)fuente.WaveFormat.SampleRate);
+
+            //llenar el buffer
+            for (int i = 0; i < read; i++)
+            {
+                muestras.Add(buffer[i + offset]);
+            }
+            //si el buffer excede el tamaño, ajustar el numero de elementos
+            if (muestras.Count > tamañoBuffer)
+            {
+                //eliminar excedente
+                int diferencia = muestras.Count - tamañoBuffer;
+                muestras.RemoveRange(0, diferencia);
+
+                cantidadMuestrasBorradas += diferencia;
+            }
+            //aplicar el efecto
+            if (milisegundosTranscurridos > offsetMiliSegundos)
+            {
+                for (int i = 0; i < read; i++)
+                {
+                    buffer[i + offset] += muestras[(cantidaMuestrasTranscurridas - cantidadMuestrasBorradas) + i - numeroMuestrasOffset];
+                }
+            }
+
+            cantidaMuestrasTranscurridas += read;
 
             return read;
         }
